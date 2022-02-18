@@ -1,0 +1,20 @@
+
+tf.Example,the data structure representing every data row within
+tfrecord is also the default data structure in the tensorflw ecosystem and 
+, therefore is used in all TFX components.
+
+To convert data of anytype to tfrecord files, we need to create a 
+tf.Example structure for every data record in the dataset. tf.Example
+ is a key-value ,mapping:
+        {"string": value}
+
+tf.Example expects a tf.Featurs object, which accepts a dictionary
+of features containing key-value pairs. The key is always a string
+identifier representing the feature column and the value is a 
+tf.train.feature object:
+        {"column A": tf.train.feature}
+
+tf.train.feature allows three data types:
+        tf.train.Byteslist
+        tf.train.Floatlist
+        tf.train.Int64list
